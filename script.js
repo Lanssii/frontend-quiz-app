@@ -365,6 +365,7 @@ const questionEl = document.querySelector(".question");
 const answersContainer = document.querySelector(".answers-container");
 const nextBtn = document.querySelector(".next-btn");
 const quizContainer = document.querySelector(".quiz-container");
+const counter = document.querySelector(".counter");
 
 let currentIndex = 0;
 let selected = null;
@@ -374,6 +375,7 @@ function loadQuestion() {
   selected = null;
 
   questionEl.innerHTML = `${currentIndex + 1}. ${current.question}`;
+  counter.innerHTML = `${currentIndex + 1} / ${questions.length}`;
 
   answersContainer.innerHTML = "";
 
