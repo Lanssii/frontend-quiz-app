@@ -370,6 +370,7 @@ let selected = null;
 
 function loadQuestion() {
   let current = questions[currentIndex];
+  selected = null;
 
   questionEl.innerHTML = `${currentIndex + 1}. ${current.question}`;
 
@@ -404,5 +405,20 @@ function selectAnswer(li, index) {
     }
   });
 }
+
+nextBtn.addEventListener("click", () => {
+  if (selected === null) return;
+
+  currentIndex++;
+
+  if (currentIndex < questions.length) {
+    loadQuestion();
+  } else {
+    document.querySelector(".quiz-container").innerHTML = `
+      <h2 class="text-3xl font-bold text-white text-center">🎉 Quiz Complete!</h2>
+      <p class="text-white text-center mt-4 text-xl">You finished all ${questions.length} questions.</p>
+    `;
+  }
+});
 
 loadQuestion();
