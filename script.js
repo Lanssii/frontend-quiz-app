@@ -375,14 +375,33 @@ function loadQuestion() {
 
   answersContainer.innerHTML = "";
 
-  current.answers.forEach((answer) => {
+  current.answers.forEach((answer, i) => {
     let li = document.createElement("li");
     li.textContent = answer;
 
     li.className =
       "px-4 py-3 rounded-xl border-2 border-white/30 bg-white/10 cursor-pointer hover:bg-white/20 transition-all";
 
+    li.addEventListener("click", () => selectAnswer(li, i));
     answersContainer.appendChild(li);
+  });
+}
+
+function selectAnswer(li, index) {
+  if (selected !== null) return;
+  selected = index;
+
+  let current = questions[currentIndex];
+  const items = answersContainer.querySelectorAll("li");
+
+  items.forEach((item, i) => {
+    if (i === current.correct) {
+      item.style.backgroundColor = "rgba(74, 222, 128, 0.6)";
+      item.style.borderColor = "rgb(134, 239, 172)";
+    } else if (i === index && index !== current.correct) {
+      item.style.backgroundColor = "rgba(248, 113, 113, 0.6)";
+      item.style.borderColor = "rgb(252, 165, 165)";
+    }
   });
 }
 
