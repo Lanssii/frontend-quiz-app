@@ -364,6 +364,7 @@ const questions = [
 const questionEl = document.querySelector(".question");
 const answersContainer = document.querySelector(".answers-container");
 const nextBtn = document.querySelector(".next-btn");
+const quizContainer = document.querySelector(".quiz-container");
 
 let currentIndex = 0;
 let selected = null;
@@ -414,7 +415,7 @@ nextBtn.addEventListener("click", () => {
   if (currentIndex < questions.length) {
     loadQuestion();
   } else {
-    document.querySelector(".quiz-container").innerHTML = `
+    quizContainer.innerHTML = `
       <h2 class="text-3xl font-bold text-white text-center">🎉 Quiz Complete!</h2>
       <p class="text-white text-center mt-4 text-xl">You finished all ${questions.length} questions.</p>
     `;
