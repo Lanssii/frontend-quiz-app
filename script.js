@@ -361,19 +361,29 @@ const questions = [
 ];
 
 // GET ELEMENTS
+const questionEl = document.querySelector(".question");
 const answersContainer = document.querySelector(".answers-container");
-const question = document.querySelector(".question");
+const nextBtn = document.querySelector(".next-btn");
 
-// SHOW QUESTION
-question.innerHTML = questions[0].question;
+let currentIndex = 0;
+let selected = null;
 
-// SHOW ANSWERS
-questions[0].answers.forEach((answer) => {
-  const li = document.createElement("li");
-  li.className =
-    "cursor-pointer bg-white/5 hover:bg-white/20 border border-white/10 hover:border-white/40 rounded-xl px-5 py-3.5 transition-all duration-200 active:scale-[0.99]";
+function loadQuestion() {
+  let current = questions[currentIndex];
 
-  li.innerHTML = answer;
+  questionEl.innerHTML = `${currentIndex + 1}. ${current.question}`;
 
-  answersContainer.appendChild(li);
-});
+  answersContainer.innerHTML = "";
+
+  current.answers.forEach((answer) => {
+    let li = document.createElement("li");
+    li.textContent = answer;
+
+    li.className =
+      "px-4 py-3 rounded-xl border-2 border-white/30 bg-white/10 cursor-pointer hover:bg-white/20 transition-all";
+
+    answersContainer.appendChild(li);
+  });
+}
+
+loadQuestion();
