@@ -2,6 +2,14 @@
 
 A simple interactive Frontend Quiz App built with HTML, JavaScript, and Tailwind CSS.
 
+## Purpose of the Project
+
+This project was created as a practice and revision tool for a frontend student I teach.
+
+The goal was to build an interactive quiz application covering core HTML and CSS concepts that we have studied so far, including Flexbox, Grid, semantic HTML, styling, transforms, display properties, and more.
+
+While the quiz covers many important topics, it represents only part of the broader frontend material we have worked on together.
+
 ## Features
 
 - 50+ HTML & CSS questions
@@ -102,6 +110,7 @@ Possible future features:
 ## Live Demo
 
 ```
+https://lanssii.github.io/frontend-quiz-app/
 
 ```
 
