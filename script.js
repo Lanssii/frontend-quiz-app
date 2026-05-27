@@ -359,3 +359,21 @@ const questions = [
     correct: 1,
   },
 ];
+
+// GET ELEMENTS
+const answersContainer = document.querySelector(".answers-container");
+const question = document.querySelector(".question");
+
+// SHOW QUESTION
+question.innerHTML = questions[0].question;
+
+// SHOW ANSWERS
+questions[0].answers.forEach((answer) => {
+  const li = document.createElement("li");
+  li.className =
+    "cursor-pointer bg-white/5 hover:bg-white/20 border border-white/10 hover:border-white/40 rounded-xl px-5 py-3.5 transition-all duration-200 active:scale-[0.99]";
+
+  li.innerHTML = answer;
+
+  answersContainer.appendChild(li);
+});
